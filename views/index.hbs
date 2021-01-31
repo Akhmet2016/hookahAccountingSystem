@@ -1,0 +1,68 @@
+<h1>Бронирование столов</h1>
+
+{{#if table.length}}
+    <div class="row">
+        {{#each table}}
+            <div class="col s6 offset-4">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="img_width" src="{{img}}" alt="{{title}}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">{{title}}</span>
+                        <p class="price">{{price}}</p>
+                    </div>
+                    <div class="card-action actions">
+                        <a href="/tableInfo/{{_id}}">Информация по столу</a>
+                        {{#if @root.isAuth}}
+                            {{#ifeq userId._id @root.userId}}
+                                <a href="{{_id}}/edit?allow=true">Редактировать</a>
+                            {{/ifeq}}
+                        {{/if}}
+                    </div>
+                    {{#if @root.isAuth}}
+                        <div class="card-action actions">
+                            <a class="waves-effect cyan lighten-1 btn modal-trigger" href="#modalBooking">Забронировать</a>
+                        </div>
+                        <!-- Модальное окно -->
+                        <div id="modalBooking" class="modal modalBooking">
+                            <form action="/card/add" method="POST">
+                                <div class="modal-content contentModalBooking">
+                                    <h4 class="modal-title">Бронирование - {{title}}</h4>
+
+                                    <div class="input-field">
+                                        <input name="timeClient" type="text" class="timepicker" id="timepickerBooking">
+                                        <label for="timepickerBooking">Выбрать время</label>
+                                        <span class="helper-text" data-error="Выберите время"></span>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <input id="clientName" name="clientName" type="text" class="validate">
+                                        <label for="clientName">Имя бронирующего</label>
+                                        <span class="helper-text" data-error="Введите имя"></span>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <input id="quantity" name="quantity" type="number" class="validate" required min="1">
+                                        <label for="quantity">Количество человек</label>
+                                        <span class="helper-text" data-error="Введите количество человек"></span>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                                    <input type="hidden" name="id" value="{{_id}}">
+                                    <button type="submit" class="btn btn-primary cyan lighten-1">Забронировать</button>
+                                    <a href="/" class="modal-close waves-effect waves-red btn-flat">Отменить</a>
+                                </div>
+                            </form>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{else}}
+    <p>Сталов нет</p>
+{{/if}}

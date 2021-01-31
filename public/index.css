@@ -1,0 +1,141 @@
+.nav-wrapper {
+    padding: 0 2rem;
+}
+
+.logo-bd {
+    font-family: MarckScript-Regular;
+    font-weight: 900;
+    font-style: italic;
+    color: #47d1e5 !important;
+    text-shadow: 1px 1px 5px #ffffff, 1px 1px 10px #000000;
+    src: url(/public/fonts/MarckScript-Regular.ttf);
+}
+
+.price {
+    font-size: 1.5rem;
+}
+
+.table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table h1 {
+    margin-bottom: 2rem;
+}
+
+.table img {
+    max-width: 600px;
+    height: auto;
+}
+
+.table a {
+    margin-left: -50%;
+    margin-top: 2em;
+}
+
+.img_width {
+    max-height: 350px;
+}
+
+.card-action.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: #26c6da;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+    color: #009eba;
+}
+
+.table-form {
+    margin-bottom: 1rem;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    background-color: transparent;
+    color: #26c6da;
+}
+
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    background-color: transparent;
+    color: #26c6da;
+}
+
+.tabs .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: #53c8d4;
+    will-change: left, right;
+}
+
+.tabs .tab a {
+    color: #0b8ea1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 24px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-transition: color .28s ease, background-color .28s ease;
+    transition: color .28s ease, background-color .28s ease;
+}
+
+.auth {
+    padding-top: 3rem;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: rgba(178, 238, 246, 0.2);
+    outline: none;
+}
+
+.alert {
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: #47d1e5;
+    color: #ff0c57;
+}
+
+.avatar {
+    max-width: 300px;
+    height: auto;
+}
+
+.modalBooking {
+    height: 70%;
+}
+
+.contentModalBooking {
+    height: 90%;
+}
+
+.timepicker-digital-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #000000de;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.modal-title {
+    margin-bottom: 2rem;
+}
+
+.inline-div {
+    display: inline-block;
+}

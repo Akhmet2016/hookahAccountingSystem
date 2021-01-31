@@ -1,0 +1,31 @@
+<h1>Редактировать {{table.title}}</h1>
+
+<form action="/edit" method="POST" class="table-form" novalidate>
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required value="{{table.title}}">
+        <label for="title">Название стола</label>
+        <span class="helper-text" data-error="Введите название"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="price" name="price" type="text" class="validate" required min="1" value="{{table.price}}">
+        <label for="price">Цена</label>
+        <span class="helper-text" data-error="Введите цену"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" required value="{{table.img}}">
+        <label for="img">URL картинки</label>
+        <span class="helper-text" data-error="Введите URL"></span>
+    </div>
+
+    <input type="hidden" name="id" value="{{table._id}}">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button type="submit" class="btn btn-primary cyan lighten-1">Редактировать стол</button>
+</form>
+
+<form action="/edit/remove" method="POST">
+    <input type="hidden" name="id" value="{{table._id}}">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn red">Удалить курс</button>
+</form>

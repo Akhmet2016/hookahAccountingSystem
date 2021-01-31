@@ -1,0 +1,43 @@
+<h1>Контроль бронирования</h1>
+<form action="/control" method="POST">
+    <div class="input-field inline-div">
+        <input name="dateReservation" type="text" class="datepicker" id="dateReservation">
+        <label for="dateReservation">Выбрать дату</label>
+        <span class="helper-text" data-error="Выберите дату"></span>
+    </div>
+
+    <div class="inline-div">
+        <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+        <button type="submit" class="btn btn-primary cyan lighten-1">Загрузить</button>
+    </div>
+</form>
+<div id="reservation">
+    {{#if reservation.length}}
+        <table>
+            <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Количество персон</th>
+                <th>Стол</th>
+                <th>Время</th>
+                <th>Действие</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each reservation}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{tableId.title}}</td>
+                    <td>{{time}}</td>
+                    <td>
+                        <button class="btn btn-small cyan lighten-1 reservation-remove" data-date="{{date}}" data-id="{{_id}}" data-csrf="{{@root.csrf}}">Удалить</button>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>На сегодня бронирования нет</p>
+    {{/if}}
+</div>
